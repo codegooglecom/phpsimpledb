@@ -1,0 +1,46 @@
+{{{
+include_once 'lib.simpledb.php';
+
+class Users extends SimpleDb
+{
+    protected $__indexes = array('username', 'password', 'active');
+    public $username;
+    public $password;
+    public $lastlogin;
+    public $active = true;
+}
+
+
+
+//-- Add a new entry
+$users = new Users('dbfolder');
+$users->username = 'billy';
+$users->password = '123456';
+$users->lastlogin = strtotime('NOW');
+$users->commit();
+
+//-- Or add a user via
+$users = new Users('dbfolder');
+$users->save(array(
+    'username'=>'billy',
+    'password'=>'123456',
+    'lastlogin'=>strtotime('now');
+));
+
+//-- Query for a user
+$username = addslashes($_POST['username']);
+$password = addslashes($_POST['password']);
+$users = new Users('dbfolder');
+$userids = $users
+    ->filter("username == '{$username}' and password == {$password}")
+    ->query();
+$userid = array_shift($userids);
+$user = $users->fetch($userid);
+echo $user->username;
+//-- Outputs: billy
+
+//-- Update the user we just got
+$user->lastlogin = strtotime('NOW');
+$user->commit();
+
+}}}
