@@ -1,5 +1,5 @@
 #labels Featured
-A filter is a very primitive function currently. Only simple comparisons are support and only "and" or "or". Filters cannot be performed on a non-index item, specified in *$\_\_indexes*.
+A filter is a very primitive function currently. Only simple comparisons are support and only "and" or "or". Filters cannot be performed on a non-index item, specified in *`$__indexes`*.
 
 {{{
 include_once 'lib.simpledb.php';
