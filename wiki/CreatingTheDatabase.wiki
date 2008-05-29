@@ -3,7 +3,7 @@ Creating a database should be, well? Simple!
 
 Include the simpledb file, extend the class, and have a writable folder.
 
-The block below defines a database, but does not create it. A database is not created until something is committed.
+The block below defines a database, but does not create it. A database is not created until something is committed. For more information on *`$__indexes`* read [Indexes]
 {{{
 include_once 'lib.simpledb.php';
 
