@@ -11,10 +11,13 @@
 
 === Helpers ===
   * count  ()
+    * Returns the count of *all* entries in a database, not based on query
 
 === Retrieve/Delete ===
   * fetch  (int $primary_key)
   * delete (int $primary_key)
+    * Deleting an entry auto-commits
 
 === Save to database ===
   * commit ()
+    * currently only saves/updates an entry to the database
