@@ -1,0 +1,20 @@
+=== Query Functions ===
+filter (string $statement)
+limit  (int $start, int $end)
+order  (string $statement)
+query  ()
+
+=== Setters/Getters ==
+get    (string $field)
+set    (string $filed, mixed $value)
+save   (array $field=>$value)
+
+=== Helpers ===
+count  ()
+
+=== Retrieve/Delete ===
+fetch  (int $primary_key)
+delete (int $primary_key)
+
+=== Save to database ===
+commit ()
