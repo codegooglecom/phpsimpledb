@@ -1,5 +1,5 @@
 #labels Featured
-Ordering is very expensive but very vital to a database. I can get it working faster but I choose feature set over speed in this category.
+Ordering is very expensive but very vital to a database. I can get it working faster but I choose feature set over speed in this category. When I have more time to look this over I'll revise the sorting algorithm
 
 {{{
 $db = new Page('data');
