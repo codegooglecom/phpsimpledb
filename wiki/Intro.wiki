@@ -1,3 +1,4 @@
+#labels Featured
 {{{
 include_once 'lib.simpledb.php';
 
@@ -9,8 +10,6 @@ class Users extends SimpleDb
     public $lastlogin;
     public $active = true;
 }
-
-
 
 //-- Add a new entry
 $users = new Users('dbfolder');
@@ -42,5 +41,9 @@ echo $user->username;
 //-- Update the user we just got
 $user->lastlogin = strtotime('NOW');
 $user->commit();
+
+//-- Delete the same user
+$users = new Users('dbfolder');
+$users->delete($userid);
 
 }}}
