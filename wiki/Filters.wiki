@@ -1,5 +1,5 @@
 #labels Featured
-A filter is a very primitive function currently. Only comparisons are support and only "and", "or" has not been implemented as of yet.
+A filter is a very primitive function currently. Only simple comparisons are support and only "and" or "or".
 
 {{{
 include_once 'lib.simpledb.php';
