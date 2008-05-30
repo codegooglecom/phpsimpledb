@@ -1,5 +1,5 @@
 #labels Featured
-Documentation
+=== Documentation ===
  # [SQLtoPurePhp Sample Php & Mysql to Php & SimpleDb]
  # [CreatingTheDatabase Creating a Database / Table]
  # [Indexes Creating an Index]
@@ -9,6 +9,7 @@ Documentation
  # [Joins]
  # [DocFunction API Calls]
 
+And now some sample code
 {{{
 include_once 'lib.simpledb.php';
 
@@ -26,7 +27,7 @@ $users = new Users('dbfolder');
 $users->username = 'billy';
 $users->password = '123456';
 $users->lastlogin = strtotime('NOW');
-$users->commit();
+$userid = $users->commit();
 
 //-- Or add a user via
 $users = new Users('dbfolder');
@@ -35,6 +36,8 @@ $users->save(array(
     'password'=>'123456',
     'lastlogin'=>strtotime('now');
 ));
+$userid = $users->commit();
+
 
 //-- Query for a user
 $username = addslashes($_POST['username']);
