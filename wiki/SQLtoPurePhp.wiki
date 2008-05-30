@@ -1,0 +1,28 @@
+Sample Mysql
+
+{{{
+$link  = mysql_connect('localhost', 'username', 'password');
+$table = mysql_select_db('sampledb');
+$sql   = 'SELECT COUNT(*) AS total, AVG(b) AS average FROM t1 WHERE b >= 0 AND b < 999';
+$query = mysql_query($sql);
+$row   = mysql_fetch_assoc($query);
+}}}
+
+Sample SimpleDb
+
+{{{
+$t = new t1('data');
+$rows = $t
+    ->filter('b >= 0 and b < 999')
+    ->query();
+
+$sum = array();
+$total = count($rows);
+
+while($rowid = array_shift($rows)) {
+    $row = $t->fetch($rowid);
+    $sum[] = $row->b;
+}
+
+$average = array_sum($sum) / $total;
+}}}
