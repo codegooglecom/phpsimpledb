@@ -12,9 +12,7 @@ Sample SimpleDb
 
 {{{
 $t = new t1('data');
-$rows = $t
-    ->filter('b >= 0 and b < 999')
-    ->query();
+$rows = $t->filter('b >= 0 and b < 999')->query();
 $entry = array();
 $entry[total] = count($rows);
 
