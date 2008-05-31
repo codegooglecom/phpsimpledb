@@ -27,6 +27,11 @@ $user->lastlogin = strtotime('NOW');
 $user->commit();
 }}}
 
+===Deletes===
+{{{
+$user->delete(23);
+}}}
+
 ===Last ID, Getting The Primary Key===
 When committing a new entry the primary key is returned but there are alternative way to retrieve the it as well, this will may be needed while you are looping through a result set.
 {{{
