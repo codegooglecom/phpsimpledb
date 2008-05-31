@@ -22,7 +22,7 @@ $username = addslashes($_POST['username']);
 $password = addslashes($_POST['password']);
 $users = new Users('dbfolder');
 $userids = $users
-    ->filter("username == '{$username}' and password == {$password}")
+    ->filter("username == '{$username}' and password == '{$password}'")
     ->query();
 $userid = array_shift($userids);
 $user = $users->fetch($userid);
