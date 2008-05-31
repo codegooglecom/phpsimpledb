@@ -32,8 +32,7 @@ Sample Mysql
 {{{
 $link  = mysql_connect('localhost', 'username', 'password');
 $table = mysql_select_db('sampledb');
-$sql   = 'SELECT * t1 WHERE c LIKE "%thousand%"';
-$query = mysql_query($sql);
+$query = mysql_query('SELECT * t1 WHERE c LIKE "%thousand%"');
 $entry = mysql_fetch_assoc($query);
 }}}
 
