@@ -1,0 +1,16 @@
+ * 0.4.1
+  * Fixed a no results error returned with bad parameter in a function, when caching was added. Adjusted caching to include limits and orders.
+ * 0.4
+  * Added query caching, if databases indexes have not changed since the last query, it will return the cached result.
+ * 0.3
+  * Improved the regrex expression for filters. Added smarter parsing to allow php functions to modify the source before evaluation.
+ * 0.2.4
+  * Fixed filters issue. If the all but the last filter returned nothing, the last filter would return all of its own results without considering the other filters, this has now been resolved. 
+ * 0.2.3
+  * Fixed limit issue. Limit overflow returned nothing rather then capped result. 
+ * 0.2.2
+  * Fixed filters issue with a bad regex parse query. 
+ * 0.2.1
+  * Added "or" feature in filters
+ * 0.2
+  * Initial Release
