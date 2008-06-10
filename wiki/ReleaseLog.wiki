@@ -1,3 +1,7 @@
+ * 0.4.3
+  * Fixed caching warnings, and removed debug code.
+ * 0.4.2
+  * Fixed caching, and to think I had it working...
  * 0.4.1
   * Fixed a no results error returned with bad parameter in a function, when caching was added. Adjusted caching to include limits and orders.
  * 0.4
