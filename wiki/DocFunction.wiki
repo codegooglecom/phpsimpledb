@@ -19,5 +19,7 @@
     * Deleting an entry auto-commits
 
 === Save to database ===
+  * reindex()
+    * migrate or fixes broken indices
   * commit ()
     * currently only saves/updates an entry to the database
