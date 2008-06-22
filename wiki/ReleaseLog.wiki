@@ -1,3 +1,25 @@
+ * 0.5.1
+  * Fixed errors with cache. 
+ * 0.5.0
+  * Fixed errors with empty tables. 
+  * Filters 6x Faster / Ordering - 3.5x Faster.
+  * New Index Format, please use "reindex()" function to reindex your current database files if you are updating from 0.4.3 
+{{{
+include 'lib.simpledb.php';
+
+class User extends SimpleDb 
+{
+    protected $__indexes = array('username', 'password');
+    public $username;
+    public $password;
+    public $signup;
+    public $lastlogin;
+}
+
+$user = new User('data');
+$user->reindex();
+}}}
+  * New Function: reindex()  - for migration / fix broken indexed files Or if your adding a new index. 
  * 0.4.3
   * Fixed caching warnings, and removed debug code.
  * 0.4.2
