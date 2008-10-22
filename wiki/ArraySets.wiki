@@ -25,10 +25,14 @@ $users = array(
 );
 
 $db      = SimpleDb::fromArraySet($users, SimpleDb::TMPCACHE);
+// or
+//$db    = SimpleDb::fromArraySet($users, 'FolderName');
 $dbname  = get_class($db);
 
 //-- Find All Active Users
 $db      = new $dbname(SimpleDb::TMPCACHE);
+// or
+//$db    = new $dbname('FolderName');
 $indexes = $db->filter('active === true')->query();
 foreach($indexes as $idx=>$null) {
     $db   = new $dbname(SimpleDb::TMPCACHE);
