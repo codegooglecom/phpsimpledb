@@ -34,7 +34,7 @@ $db      = new $dbname(SimpleDb::TMPCACHE);
 // or
 //$db    = new $dbname('FolderName');
 $indexes = $db->filter('active === true')->query();
-foreach($indexes as $idx=>$null) {
+foreach($indexes as $idx) {
     $db   = new $dbname(SimpleDb::TMPCACHE);
     $user = $db->fetch($idx);
     echo $idx, ':', $user->username, '<br />';
