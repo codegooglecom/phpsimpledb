@@ -1,3 +1,5 @@
+ * 0.6.1
+  * New TmpCache, importing ArraySets, and building from an Array. Also fixed issues with Ordering. 
  * 0.5.1
   * Fixed errors with cache. 
  * 0.5.0
