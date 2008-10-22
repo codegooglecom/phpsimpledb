@@ -1,0 +1,30 @@
+= fromArray, Building a SimpleDb Class from an Array =
+
+{{{
+$user= array(
+        'username' => 'billy',
+        'password' => '123456',
+        'lastlogin' => strtotime('Now'),
+        'active' => true
+        );
+SimpleDb::fromArray($user, 'Users');
+$db = new Users('folder');
+
+//or
+$dbname = SimpleDb::fromArray($user); // creates a random class name
+$db = new $dbname('folder');
+}}}
+
+Instead of 
+{{{
+class Users extends SimpleDb
+{
+    protected $__indexes = array('username', 'password', 'active');
+    public $username;
+    public $password;
+    public $lastlogin;
+    public $active = true;
+}
+
+$db = new Users('folder');
+}}}
