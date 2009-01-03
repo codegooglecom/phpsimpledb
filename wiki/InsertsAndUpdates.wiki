@@ -1,4 +1,5 @@
 #labels Featured
+#sidebar TableOfContents
 Inserts and Updates are only per-entry, a ranged insert/update maybe come but don't expect it soon.
 
 ===Inserts===
