@@ -1,3 +1,5 @@
+ * 0.6.5
+  * Fixed an issue with moving the database folder to another path. 
  * 0.6.4
   * Fixed bad results with mixed filters and orders. 
  * 0.6.3
