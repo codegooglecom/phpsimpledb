@@ -1,3 +1,9 @@
+ * 0.6.4
+  * Fixed bad results with mixed filters and orders. 
+ * 0.6.3
+  * Fixed key/value of result sets returned by a pure filter. Added ClearCache function 
+ * 0.6.2
+  * Accidently disabled caching, re-enabled. 
  * 0.6.1
   * New TmpCache, importing ArraySets, and building from an Array. Also fixed issues with Ordering. 
  * 0.5.1
