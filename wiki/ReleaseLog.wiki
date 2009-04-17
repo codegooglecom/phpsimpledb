@@ -1,3 +1,5 @@
+ * 0.6.6
+  * Fixed an issue with deleting a row and the key still being visible.  
  * 0.6.5
   * Fixed an issue with moving the database folder to another path. 
  * 0.6.4
