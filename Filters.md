@@ -1,0 +1,42 @@
+A filter is a very primitive function currently. Only simple comparisons are support and only "and" or "or". Filters cannot be performed on a non-index item, specified in **`$__indexes`**. They are also very dangerous to user into since you can use any and ever php function in a filter, someone could possibly remove vital parts of your application's database.
+
+```
+include_once 'lib.simpledb.php';
+
+class Users extends SimpleDb
+{
+    protected $__indexes = array('username', 'password', 'active');
+    public $username;
+    public $password;
+    public $lastlogin;
+    public $active = true;
+}
+
+//-- Fetch a user by a primary index
+$user = $users->fetch(1);
+echo $user->username;
+
+//-- Fetch a user by username index
+$username = addslashes($_POST['username']);
+$password = addslashes($_POST['password']);
+$users = new Users('dbfolder');
+$userids = $users
+    ->filter("username == '{$username}' and password == '{$password}'")
+    ->query();
+$userid = array_shift($userids);
+$user = $users->fetch($userid);
+echo $user->username;
+
+
+//-- Fetch many users
+$users = new Users('dbfolder');
+$userids = $users
+    ->order('-active, +username') //-- sorts by active usernames
+    ->query();
+
+//-- Iterate result set
+while($userid = array_shift($userids)) {
+    $user = $users->fetch($userid);
+    echo $user->username;
+}
+```

@@ -1,0 +1,54 @@
+  * 0.6.6
+    * Fixed an issue with deleting a row and the key still being visible.
+  * 0.6.5
+    * Fixed an issue with moving the database folder to another path.
+  * 0.6.4
+    * Fixed bad results with mixed filters and orders.
+  * 0.6.3
+    * Fixed key/value of result sets returned by a pure filter. Added ClearCache function
+  * 0.6.2
+    * Accidently disabled caching, re-enabled.
+  * 0.6.1
+    * New TmpCache, importing ArraySets, and building from an Array. Also fixed issues with Ordering.
+  * 0.5.1
+    * Fixed errors with cache.
+  * 0.5.0
+    * Fixed errors with empty tables.
+    * Filters 6x Faster / Ordering - 3.5x Faster.
+    * New Index Format, please use "reindex()" function to reindex your current database files if you are updating from 0.4.3
+```
+include 'lib.simpledb.php';
+
+class User extends SimpleDb 
+{
+    protected $__indexes = array('username', 'password');
+    public $username;
+    public $password;
+    public $signup;
+    public $lastlogin;
+}
+
+$user = new User('data');
+$user->reindex();
+```
+    * New Function: reindex()  - for migration / fix broken indexed files Or if your adding a new index.
+  * 0.4.3
+    * Fixed caching warnings, and removed debug code.
+  * 0.4.2
+    * Fixed caching, and to think I had it working...
+  * 0.4.1
+    * Fixed a no results error returned with bad parameter in a function, when caching was added. Adjusted caching to include limits and orders.
+  * 0.4
+    * Added query caching, if databases indexes have not changed since the last query, it will return the cached result.
+  * 0.3
+    * Improved the regrex expression for filters. Added smarter parsing to allow php functions to modify the source before evaluation.
+  * 0.2.4
+    * Fixed filters issue. If the all but the last filter returned nothing, the last filter would return all of its own results without considering the other filters, this has now been resolved.
+  * 0.2.3
+    * Fixed limit issue. Limit overflow returned nothing rather then capped result.
+  * 0.2.2
+    * Fixed filters issue with a bad regex parse query.
+  * 0.2.1
+    * Added "or" feature in filters
+  * 0.2
+    * Initial Release

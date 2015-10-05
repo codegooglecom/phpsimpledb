@@ -1,0 +1,1 @@
+Joins are not supported, nor will. This defeats a "simple" database. You can surely fetch alternative part of different databases via **`fetch(primary_key)`**

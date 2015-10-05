@@ -1,0 +1,44 @@
+Inserts and Updates are only per-entry, a ranged insert/update maybe come but don't expect it soon.
+
+### Inserts ###
+```
+//-- Add a new entry
+$users = new Users('dbfolder');
+$users->username = 'billy';
+$users->password = '123456';
+$users->lastlogin = strtotime('NOW');
+$userid = $users->commit();
+
+//-- Or add a user via
+$users = new Users('dbfolder');
+$users->save(array(
+    'username'=>'billy',
+    'password'=>'123456',
+    'lastlogin'=>strtotime('now');
+));
+$userid = $users->commit();
+```
+
+### Updates ###
+```
+$user = $users->fetch(23);
+$user->lastlogin = strtotime('NOW');
+$user->commit();
+```
+
+### Deletes ###
+```
+$user->delete(23);
+```
+
+### Last ID, Getting The Primary Key ###
+When committing a new entry the primary key is returned but there are alternative way to retrieve the it as well, this will may be needed while you are looping through a result set.
+```
+$users = new Users('dbfolder');
+$users->username = 'billy';
+$users->password = '123456';
+$users->lastlogin = strtotime('NOW');
+$userid = $users->commit();
+//-- or
+$userid = $users->get('__id');
+```

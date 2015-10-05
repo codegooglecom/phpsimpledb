@@ -1,0 +1,19 @@
+# Tmp Cache #
+
+Tmp Cache allows you to use SimpleDb without permission issues using the tmp folder for an operating system. This is meant to make it easier for a developer to setup an temporal flat file db to filter and order.
+
+```
+class Users extends SimpleDb
+{
+    protected $__indexes = array('username', 'password', 'active');
+    public $username;
+    public $password;
+    public $lastlogin;
+    public $active = true;
+}
+
+
+$users = new Users(SimpleDb::TMPCACHE);
+// instead of
+//$users = new Users('DBFolder');
+```

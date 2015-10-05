@@ -1,0 +1,48 @@
+#dumping an array to query
+
+# Dumping array sets into SimpleDb #
+
+```
+$users = array(
+   array(
+        'username' => 'billy',
+        'password' => '123456',
+        'lastlogin' => strtotime('Now'),
+        'active' => true
+        ),
+   array(
+        'username' => 'walter',
+        'password' => '125410',
+        'lastlogin' => strtotime('Now'),
+        'active' => false
+        ),
+   array(
+        'username' => 'jane',
+        'password' => '5556851',
+        'lastlogin' => strtotime('Now'),
+        'active' => true
+        )
+);
+
+$db      = SimpleDb::fromArraySet($users, SimpleDb::TMPCACHE);
+// or
+//$db    = SimpleDb::fromArraySet($users, 'FolderName');
+$dbname  = get_class($db);
+
+//-- Find All Active Users
+$db      = new $dbname(SimpleDb::TMPCACHE);
+// or
+//$db    = new $dbname('FolderName');
+$indexes = $db->filter('active === true')->query();
+foreach($indexes as $idx) {
+    $db   = new $dbname(SimpleDb::TMPCACHE);
+    $user = $db->fetch($idx);
+    echo $idx, ':', $user->username, '<br />';
+}
+
+/* 
+Output:
+  1:billy
+  3:jane
+*/
+```

@@ -1,0 +1,44 @@
+Sample Mysql
+
+```
+$link  = mysql_connect('localhost', 'username', 'password');
+$table = mysql_select_db('sampledb');
+$sql   = 'SELECT COUNT(*) AS total, AVG(b) AS average FROM t1 WHERE b >= 0 AND b < 999';
+$query = mysql_query($sql);
+$entry = mysql_fetch_assoc($query);
+```
+
+Sample SimpleDb
+
+```
+$t = new t1('data');
+$rows = $t->filter('b >= 0 and b < 999')->query();
+$entry = array();
+$entry[total] = count($rows);
+
+$sum = array();
+while($rowid = array_shift($rows)) {
+    $row = $t->fetch($rowid);
+    $sum[] = $row->b;
+}
+$entry['average'] = array_sum($sum) / $entry['total'];
+```
+
+
+Sample Mysql
+
+```
+$link  = mysql_connect('localhost', 'username', 'password');
+$table = mysql_select_db('sampledb');
+$query = mysql_query('SELECT * t1 WHERE c LIKE "%thousand%"');
+$entry = mysql_fetch_assoc($query);
+```
+
+Sample SimpleDb
+
+```
+$t     = new t1('data');
+$rows  = $t->filter('stristr(c, "thousand")')->query();
+$idx   = array_shift($rows);
+$entry = $t->fetch($idx);
+```
